@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio</title>
+    <title>Nishanth T - Full Stack Developer Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -44,7 +44,7 @@
         }
 
         .text-sandal {
-            color: var(--sandal-dark);
+            color: var(--text-dark);
         }
 
         .border-sandal {
@@ -88,6 +88,15 @@
             width: 100%;
         }
 
+        .nav-link.active {
+            color: var(--sandal-dark);
+            font-weight: 600;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
         /* Hero Section */
         .hero-section {
             min-height: 100vh;
@@ -108,8 +117,8 @@
         }
 
         .profile-image {
-            width: 280px;
-            height: 280px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             border: 8px solid var(--white);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -119,32 +128,28 @@
             background: linear-gradient(135deg, var(--sandal-medium), var(--sandal-dark));
         }
 
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
         .profile-image:hover {
             transform: scale(1.05) rotate(5deg);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
 
-        .profile-image::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100px;
-            height: 100px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .profile-image:hover::before {
-            width: 120px;
-            height: 120px;
+        .profile-image:hover img {
+            transform: scale(1.1);
         }
 
         .typing-animation {
             border-right: 3px solid var(--sandal-dark);
             animation: typing 3s steps(30, end), blink 1s infinite;
+            white-space: nowrap;
+            overflow: hidden;
         }
 
         @keyframes typing {
@@ -221,6 +226,252 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
+        /* Contact Links */
+        .contact-link {
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-link:hover {
+            color: var(--sandal-dark);
+            transform: translateX(5px);
+        }
+
+        .contact-link:hover .contact-icon {
+            transform: scale(1.2);
+            color: var(--sandal-dark);
+        }
+
+        .contact-icon {
+            transition: all 0.3s ease;
+        }
+
+        .resume-item {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            border-left: 4px solid var(--sandal-medium);
+        }
+
+        .resume-item:hover {
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-left-color: var(--sandal-dark);
+        }
+
+        .resume-item:hover .resume-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: var(--sandal-dark);
+        }
+
+        .resume-icon {
+            font-size: 2rem;
+            color: var(--sandal-medium);
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .resume-date {
+            background: var(--sandal-light);
+            color: var(--sandal-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .resume-company {
+            color: var(--sandal-dark);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .resume-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .resume-description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .resume-description li {
+            margin-bottom: 5px;
+        }
+
+        /* Skills Progress Bar */
+        .skill-progress {
+            background: var(--sandal-light);
+            border-radius: 10px;
+            height: 12px;
+            overflow: hidden;
+            margin-top: 8px;
+            position: relative;
+        }
+
+        .skill-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--sandal-medium), var(--sandal-dark));
+            border-radius: 10px;
+            transition: width 1s ease;
+            position: relative;
+        }
+
+        .skill-progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .skill-item-resume {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .skill-item-resume:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-item-resume:hover .skill-progress-bar {
+            background: linear-gradient(90deg, var(--sandal-dark), #B8956A);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--sandal-medium);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -23px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--sandal-dark);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--sandal-medium);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.3);
+            box-shadow: 0 0 0 6px var(--sandal-light);
+        }
+
+        /* Achievement Cards */
+        .achievement-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sandal-medium), var(--sandal-dark));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            color: var(--sandal-dark);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover .achievement-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .achievement-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--sandal-dark);
+            margin-bottom: 10px;
+        }
+
+        /* Contact Links */
+        .contact-link {
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-link:hover {
+            color: var(--sandal-dark);
+            transform: translateX(5px);
+        }
+
+        .contact-link:hover .contact-icon {
+            transform: scale(1.2);
+            color: var(--sandal-dark);
+        }
+
+        .contact-icon {
+            transition: all 0.3s ease;
+        }
+
         /* Project Cards */
         .project-card {
             background: var(--white);
@@ -229,7 +480,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease;
             position: relative;
-            height: 350px;
+            height: 380px;
         }
 
         .project-card:hover {
@@ -240,27 +491,19 @@
         .project-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, var(--sandal-medium), var(--sandal-dark));
             position: relative;
             overflow: hidden;
         }
 
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transition: all 0.3s ease;
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        .project-card:hover .project-image::before {
-            width: 80px;
-            height: 80px;
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
         }
 
         .project-overlay {
@@ -386,6 +629,36 @@
             transform: translateY(-2px);
         }
 
+        /* Social Media Links */
+        .social-link {
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: scale(1.2);
+        }
+
+        .social-link.linkedin:hover {
+            background-color: #0077B5 !important;
+            color: white !important;
+        }
+
+        .social-link.github:hover {
+            background-color: #333 !important;
+            color: white !important;
+        }
+
+        .social-link.twitter:hover {
+            background-color: #1DA1F2 !important;
+            color: white !important;
+        }
+
+        .social-link.instagram:hover {
+            background-color: #e44040 !important;
+            color: white !important;
+        }
+
         /* Mobile Menu */
         .mobile-menu {
             position: fixed;
@@ -401,6 +674,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding-top: 60px;
         }
 
         .mobile-menu.active {
@@ -427,8 +701,8 @@
             }
             
             .profile-image {
-                width: 200px;
-                height: 200px;
+                width: 250px;
+                height: 250px;
                 margin: 0 auto 30px;
             }
             
@@ -509,6 +783,16 @@
                 opacity: 0;
             }
         }
+
+        /* Loading Animation */
+        .loaded {
+            opacity: 1;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
@@ -517,7 +801,9 @@
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
-                    <a href="#home" class="text-2xl font-bold text-sandal">Portfolio</a>
+                    <a href="#home" class="text-2xl font-bold text-sandal">
+                        <i class="fas fa-code mr-2"></i>Portfolio
+                    </a>
                 </div>
                 
                 <!-- Desktop Menu -->
@@ -525,6 +811,7 @@
                     <div class="flex items-center space-x-8">
                         <a href="#home" class="nav-link text-gray-700 hover:text-sandal-dark px-3 py-2">Home</a>
                         <a href="#about" class="nav-link text-gray-700 hover:text-sandal-dark px-3 py-2">About</a>
+                        <a href="#resume" class="nav-link text-gray-700 hover:text-sandal-dark px-3 py-2">Resume</a>
                         <a href="#projects" class="nav-link text-gray-700 hover:text-sandal-dark px-3 py-2">Projects</a>
                         <a href="#contact" class="nav-link text-gray-700 hover:text-sandal-dark px-3 py-2">Contact</a>
                     </div>
@@ -541,12 +828,14 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu">
+    <class="mobile-menu">
         <button class="mobile-menu-close absolute top-4 right-4 text-2xl">
             <i class="fas fa-times"></i>
         </button>
         <a href="#home" class="mobile-menu-link">Home</a>
         <a href="#about" class="mobile-menu-link">About</a>
+        <a href="#resume" class="mobile-menu-link">Resume</a>
+    
         <a href="#projects" class="mobile-menu-link">Projects</a>
         <a href="#contact" class="mobile-menu-link">Contact</a>
     </div>
@@ -559,9 +848,7 @@
                 <!-- Profile Image (Left Side) -->
                 <div class="md:w-1/2 flex justify-center md:justify-center mb-8 md:mb-0">
                     <div class="profile-image float-animation fade-left">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-user text-6xl text-white opacity-70"></i>
-                        </div>
+                        <img src="image/profile2.jpg" alt="Nishanth T - Full Stack Developer">
                     </div>
                 </div>
 
@@ -569,18 +856,21 @@
                 <div class="md:w-1/2 text-center md:text-left fade-right">
                     <h1 class="text-5xl md:text-6xl font-bold mb-4 text-gray-800">
                         Hello, I'm
-                        <span class="text-sandal-dark">Nishanth. T</span>
+                        <span class="text-sandal-dark">Nishanth T</span>
                     </h1>
                     <div class="text-2xl md:text-3xl mb-6 text-gray-600">
                         <span class="typing-animation">Full Stack Developer</span>
                     </div>
                     <p class="text-lg mb-8 text-gray-600 max-w-xl">
-                        Passionate about creating amazing web experiences with modern technologies. 
-                        I specialize in frontend and backend development with a focus on user-centered design.
+                        I'm passionate about creating amazing web experiences with modern technologies. 
+                        I specialize in frontend and backend development with a focus on user-centered design and innovative solutions.
                     </p>
                     <div class="space-x-4">
-                        <a href="#projects" class="btn-primary">View My Work</a>
-                        <a href="#contact" class="btn-secondary">Get In Touch</a>
+                        <a href="#projects" class="btn-primary">
+                            <i class="fas fa-eye mr-2"></i>View My Projects
+                        </a>
+                        <a href="#resume" class="btn-secondary">
+                            <i class="fas fa-envelope mr-2"></i>My Resume</a>
                     </div>
                 </div>
             </div>
@@ -598,7 +888,9 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="fade-left">
                     <div class="card">
-                        <h3 class="text-2xl font-semibold mb-4 text-sandal-dark">My Journey</h3>
+                        <h3 class="text-2xl font-semibold mb-4 text-sandal-dark">
+                            <i class="fas fa-user-circle mr-2"></i>My Journey
+                        </h3>
                         <p class="text-gray-600 mb-4">
                             I'm a passionate Full Stack Developer with 5+ years of experience creating 
                             digital solutions that make a difference. My journey began with a fascination 
@@ -610,8 +902,12 @@
                             technologies to deliver cutting-edge solutions that exceed client expectations.
                         </p>
                         <div class="flex space-x-4">
-                            <a href="#contact" class="btn-primary">Hire Me</a>
-                            <a href="#" class="btn-secondary">Download CV</a>
+                            <a href="#contact" class="btn-primary">
+                                <i class="fas fa-handshake mr-2"></i>Hire Me
+                            </a>
+                            <a href="#" class="btn-secondary">
+                                <i class="fas fa-download mr-2"></i>Download CV
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -666,6 +962,343 @@
         </div>
     </section>
 
+    <section id="resume" class="section bg-sandal">
+        <div class="container mx-auto px-4">
+            <div class="text-center section-title fade-up">
+                <h2 class="text-4xl font-bold mb-4">My Resume</h2>
+                <p class="text-xl text-gray-600">A comprehensive overview of my professional journey</p>
+            </div>
+
+            <!-- Summary -->
+            <div class="mb-16 fade-up">
+                <div class="card text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-sandal-dark">
+                        <i class="fas fa-user-tie mr-2"></i>Professional Summary
+                    </h3>
+                    <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mx-auto">
+                        Dedicated Full Stack Developer with 5+ years of experience in designing and developing 
+                        scalable web applications. Proficient in modern frontend and backend technologies with 
+                        a strong focus on user experience and performance optimization. Proven track record of 
+                        delivering high-quality solutions and leading development teams to success.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="mb-16 fade-up">
+                <h3 class="text-3xl font-bold text-center mb-12 text-sandal-dark">
+                    <i class="fas fa-trophy mr-2"></i>Key Achievements
+                </h3>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="achievement-number">50+</div>
+                        <h4 class="font-semibold text-lg">Projects Completed</h4>
+                        <p class="text-gray-600">Successfully delivered projects</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="achievement-number">15+</div>
+                        <h4 class="font-semibold text-lg">Happy Clients</h4>
+                        <p class="text-gray-600">Satisfied customers worldwide</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="achievement-number">8+</div>
+                        <h4 class="font-semibold text-lg">Awards Won</h4>
+                        <p class="text-gray-600">Recognition for excellence</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="achievement-number">5+</div>
+                        <h4 class="font-semibold text-lg">Years Experience</h4>
+                        <p class="text-gray-600">In web development</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Experience -->
+                <div class="fade-left">
+                    <h3 class="text-3xl font-bold mb-8 text-sandal-dark">
+                        <i class="fas fa-briefcase mr-2"></i>Experience
+                    </h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="resume-item">
+                                <div class="resume-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <div class="resume-date">2022 - Present</div>
+                                <h4 class="text-xl font-semibold text-sandal-dark mb-2">Senior Full Stack Developer</h4>
+                                <div class="resume-company">Tech Solutions Inc.</div>
+                                <div class="resume-description">
+                                    <p>Leading development of enterprise-level web applications using React, Node.js, and cloud technologies.</p>
+                                    <ul>
+                                        <li>Architected and developed 10+ scalable web applications</li>
+                                        <li>Led a team of 5 developers and mentored junior developers</li>
+                                        <li>Improved application performance by 40% through optimization</li>
+                                        <li>Implemented CI/CD pipelines and automated testing processes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="resume-item">
+                                <div class="resume-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="resume-date">2020 - 2022</div>
+                                <h4 class="text-xl font-semibold text-sandal-dark mb-2">Full Stack Developer</h4>
+                                <div class="resume-company">Digital Innovations Ltd.</div>
+                                <div class="resume-description">
+                                    <p>Developed responsive web applications and collaborated with cross-functional teams.</p>
+                                    <ul>
+                                        <li>Built 15+ responsive websites using modern frameworks</li>
+                                        <li>Collaborated with UX/UI designers and product managers</li>
+                                        <li>Integrated third-party APIs and payment gateways</li>
+                                        <li>Maintained and updated existing applications</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="resume-item">
+                                <div class="resume-icon">
+                                    <i class="fas fa-html5"></i>
+                                </div>
+                                <div class="resume-date">2019 - 2020</div>
+                                <h4 class="text-xl font-semibold text-sandal-dark mb-2">Frontend Developer</h4>
+                                <div class="resume-company">StartUp Ventures</div>
+                                <div class="resume-description">
+                                    <p>Focused on creating engaging user interfaces and improving user experience.</p>
+                                    <ul>
+                                        <li>Developed interactive user interfaces using React and Vue.js</li>
+                                        <li>Implemented responsive designs for mobile and desktop</li>
+                                        <li>Optimized website performance and SEO</li>
+                                        <li>Collaborated with backend developers for API integration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="fade-right">
+                    <h3 class="text-3xl font-bold mb-8 text-sandal-dark">
+                        <i class="fas fa-graduation-cap mr-2"></i>Education
+                    </h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="resume-item">
+                                <div class="resume-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="resume-date">2015 - 2019</div>
+                                <h4 class="text-xl font-semibold text-sandal-dark mb-2">Bachelor of Computer Science</h4>
+                                <div class="resume-company">University of Technology</div>
+                                <div class="resume-description">
+                                    <p>Specialized in Software Engineering and Web Development</p>
+                                    <ul>
+                                        <li>GPA: 3.8/4.0</li>
+                                        <li>Dean's List for 6 consecutive semesters</li>
+                                        <li>President of Computer Science Club</li>
+                                        <li>Capstone project: E-commerce Platform with AI recommendations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="resume-item">
+                                <div class="resume-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="resume-date">2019</div>
+                                <h4 class="text-xl font-semibold text-sandal-dark mb-2">Full Stack Web Development</h4>
+                                <div class="resume-company">FreeCodeCamp</div>
+                                <div class="resume-description">
+                                    <p>Comprehensive certification in modern web development technologies</p>
+                                    <ul>
+                                        <li>300+ hours of hands-on coding</li>
+                                        <li>Built 5 full-stack projects</li>
+                                        <li>Mastered React, Node.js, and MongoDB</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <h3 class="text-3xl font-bold mb-8 text-sandal-dark mt-12">
+                        <i class="fas fa-award mr-2"></i>Certifications
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="resume-item">
+                            <div class="flex items-center">
+                                <div class="resume-icon mr-4">
+                                    <i class="fab fa-aws"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sandal-dark">AWS Certified Developer</h4>
+                                    <p class="text-gray-600">Amazon Web Services - 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resume-item">
+                            <div class="flex items-center">
+                                <div class="resume-icon mr-4">
+                                    <i class="fab fa-google"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sandal-dark">Google Cloud Professional</h4>
+                                    <p class="text-gray-600">Google Cloud Platform - 2022</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resume-item">
+                            <div class="flex items-center">
+                                <div class="resume-icon mr-4">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sandal-dark">React Developer Certification</h4>
+                                    <p class="text-gray-600">Meta (Facebook) - 2021</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="mt-16 fade-up">
+                <h3 class="text-3xl font-bold text-center mb-12 text-sandal-dark">
+                    <i class="fas fa-cogs mr-2"></i>Technical Skills
+                </h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-6 text-sandal-dark">Frontend Technologies</h4>
+                        <div class="space-y-4">
+                            <div class="skill-item-resume">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">React.js</span>
+                                    <span class="text-sandal-dark">95%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item-resume">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">JavaScript/TypeScript</span>
+                                    <span class="text-sandal-dark">90%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item-resume">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">HTML5/CSS3</span>
+                                    <span class="text-sandal-dark">95%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item-resume">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Vue.js</span>
+                                    <span class="text-sandal-dark">85%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-6 text-sandal-dark">Backend Technologies</h4>
+                        <div class="space-y-4">
+                            <div class="skill-item-resume">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Node.js</span>
+                                    <span class="text-sandal-dark">88%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item-resume">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Python</span>
+                                    <span class="text-sandal-dark">82%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 82%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item-resume">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">MongoDB</span>
+                                    <span class="text-sandal-dark">85%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item-resume">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">PostgreSQL</span>
+                                    <span class="text-sandal-dark">80%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="mt-16 fade-up">
+                <h3 class="text-3xl font-bold text-center mb-12 text-sandal-dark">
+                    <i class="fas fa-language mr-2"></i>Languages
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="skill-item-resume text-center">
+                        <div class="text-3xl mb-3">🇺🇸</div>
+                        <h4 class="font-semibold text-sandal-dark">English</h4>
+                        <p class="text-gray-600">Native</p>
+                    </div>
+                    <div class="skill-item-resume text-center">
+                        <div class="text-3xl mb-3">🇮🇳</div>
+                        <h4 class="font-semibold text-sandal-dark">Hindi</h4>
+                        <p class="text-gray-600">Native</p>
+                    </div>
+                    <div class="skill-item-resume text-center">
+                        <div class="text-3xl mb-3">🇪🇸</div>
+                        <h4 class="font-semibold text-sandal-dark">Spanish</h4>
+                        <p class="text-gray-600">Intermediate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects" class="section bg-sandal">
         <div class="container mx-auto px-4">
@@ -677,10 +1310,12 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="project-card fade-up">
                     <div class="project-image">
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240409180455/ecommerce-Website-Project.webp" alt="E-Commerce Platform">
                         <div class="project-overlay">
                             <div class="text-center">
-                                <a href="#" class="btn-primary mr-2">View Live</a>
-                                <a href="#" class="btn-secondary">GitHub</a>
+                                <a href="#" class="btn-primary mr-2">
+                                    <i class="fas fa-external-link-alt mr-1"></i>View Live
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -697,10 +1332,12 @@
 
                 <div class="project-card fade-up">
                     <div class="project-image">
+                        <img src="https://designshack.net/wp-content/uploads/Dashboard-Task-Management-Web-App-UI-Kit-1.webp" alt="Task Management App">
                         <div class="project-overlay">
                             <div class="text-center">
-                                <a href="#" class="btn-primary mr-2">View Live</a>
-                                <a href="#" class="btn-secondary">GitHub</a>
+                                <a href="#" class="btn-primary mr-2">
+                                    <i class="fas fa-external-link-alt mr-1"></i>View Live
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -717,30 +1354,12 @@
 
                 <div class="project-card fade-up">
                     <div class="project-image">
+                        <img src="https://as2.ftcdn.net/jpg/05/49/31/73/1000_F_549317377_j4ef7Thh9nToAGGKMbo4gYORfa2VIADJ.jpg" alt="Weather App">
                         <div class="project-overlay">
                             <div class="text-center">
-                                <a href="#" class="btn-primary mr-2">View Live</a>
-                                <a href="#" class="btn-secondary">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
-                        <p class="text-gray-600 mb-4">Responsive portfolio with modern design</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-sandal-medium text-sm rounded-full">HTML5</span>
-                            <span class="px-3 py-1 bg-sandal-medium text-sm rounded-full">CSS3</span>
-                            <span class="px-3 py-1 bg-sandal-medium text-sm rounded-full">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-up">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="text-center">
-                                <a href="#" class="btn-primary mr-2">View Live</a>
-                                <a href="#" class="btn-secondary">GitHub</a>
+                                <a href="#" class="btn-primary mr-2">
+                                    <i class="fas fa-external-link-alt mr-1"></i>View Live
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -757,10 +1376,34 @@
 
                 <div class="project-card fade-up">
                     <div class="project-image">
+                        <img src="https://theappsolutions.com/wp-content/uploads/images/articles/source/ecommerce-how-to-build-a-store/woocommerce-1.png" alt="Portfolio Website">
                         <div class="project-overlay">
                             <div class="text-center">
-                                <a href="#" class="btn-primary mr-2">View Live</a>
-                                <a href="#" class="btn-secondary">GitHub</a>
+                                <a href="#" class="btn-primary mr-2">
+                                    <i class="fas fa-external-link-alt mr-1"></i>View Live
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+                        <p class="text-gray-600 mb-4">Responsive portfolio with modern design</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-sandal-medium text-sm rounded-full">HTML5</span>
+                            <span class="px-3 py-1 bg-sandal-medium text-sm rounded-full">CSS3</span>
+                            <span class="px-3 py-1 bg-sandal-medium text-sm rounded-full">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-up">
+                    <div class="project-image">
+                        <img src="https://uizard.io/static/e9ec22aba80d02f9a17f91ec301e3930/e4eb1/e2ace803d7554339df5d8f28d44425c57009f827-1440x858.png" alt="Blog Platform">
+                        <div class="project-overlay">
+                            <div class="text-center">
+                                <a href="#" class="btn-primary mr-2">
+                                    <i class="fas fa-external-link-alt mr-1"></i>View Live
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -777,10 +1420,12 @@
 
                 <div class="project-card fade-up">
                     <div class="project-image">
+                        <img src="https://uizard.io/static/bb65d400e45d1c2346cbdc199d0bf239/a8e47/03414a88d4ee065fb6ff174500942f8f59852fae-1440x835.png" alt="Chat Application">
                         <div class="project-overlay">
                             <div class="text-center">
-                                <a href="#" class="btn-primary mr-2">View Live</a>
-                                <a href="#" class="btn-secondary">GitHub</a>
+                                <a href="#" class="btn-primary mr-2">
+                                    <i class="fas fa-external-link-alt mr-1"></i>View Live
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -798,6 +1443,7 @@
         </div>
     </section>
 
+
     <!-- Contact Section -->
     <section id="contact" class="section bg-white">
         <div class="container mx-auto px-4">
@@ -809,53 +1455,57 @@
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="fade-left">
                     <div class="card">
-                        <h3 class="text-2xl font-semibold mb-6 text-sandal-dark">Contact Information</h3>
+                        <h3 class="text-2xl font-semibold mb-6 text-sandal-dark">
+                            <i class="fas fa-address-card mr-2"></i>Contact Information
+                        </h3>
                         
                         <div class="space-y-6">
-                            <div class="flex items-center">
+                            <a href="mailto:nishanth1826@gmail.com" class="contact-link flex items-center">
                                 <div class="w-12 h-12 bg-sandal-medium rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-envelope text-sandal-dark"></i>
+                                    <i class="fas fa-envelope text-sandal-dark contact-icon"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold">Email</h4>
-                                    <p class="text-gray-600">john.doe@example.com</p>
+                                    <p class="text-gray-600">nishanth1826@gmail.com</p>
                                 </div>
-                            </div>
+                            </a>
 
-                            <div class="flex items-center">
+                            <a href="tel:+919876543210" class="contact-link flex items-center">
                                 <div class="w-12 h-12 bg-sandal-medium rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-phone text-sandal-dark"></i>
+                                    <i class="fas fa-phone text-sandal-dark contact-icon"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold">Phone</h4>
-                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                    <p class="text-gray-600">+91 9876543210</p>
                                 </div>
-                            </div>
+                            </a>
 
-                            <div class="flex items-center">
+                            <a href="https://maps.app.goo.gl/V9ZTefUKNfASN8HD8" target="_blank" class="contact-link flex items-center">
                                 <div class="w-12 h-12 bg-sandal-medium rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-map-marker-alt text-sandal-dark"></i>
+                                    <i class="fas fa-map-marker-alt text-sandal-dark contact-icon"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold">Location</h4>
-                                    <p class="text-gray-600">New York, NY</p>
+                                    <p class="text-gray-600">Click to view on map</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
 
                         <div class="mt-8">
-                            <h4 class="font-semibold mb-4">Follow Me</h4>
+                            <h4 class="font-semibold mb-4">
+                                <i class="fas fa-share-alt mr-2"></i>Follow Me
+                            </h4>
                             <div class="flex space-x-4">
-                                <a href="#" class="w-10 h-10 bg-sandal-medium rounded-full flex items-center justify-center hover:bg-sandal-dark hover:text-white transition-all">
+                                <a href="https://www.linkedin.com/in/nishanth-t-b509a0367?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-link linkedin w-12 h-12 bg-sandal-medium rounded-full flex items-center justify-center hover:bg-sandal-dark hover:text-white transition-all">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 bg-sandal-medium rounded-full flex items-center justify-center hover:bg-sandal-dark hover:text-white transition-all">
+                                <a href="https://github.com/Nishanth1826" target="_blank" class="social-link github w-12 h-12 bg-sandal-medium rounded-full flex items-center justify-center hover:bg-sandal-dark hover:text-white transition-all">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 bg-sandal-medium rounded-full flex items-center justify-center hover:bg-sandal-dark hover:text-white transition-all">
+                                <a href="https://twitter.com/nishanth_t" target="_blank" class="social-link twitter w-12 h-12 bg-sandal-medium rounded-full flex items-center justify-center hover:bg-sandal-dark hover:text-white transition-all">
                                     <i class="fab fa-twitter"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 bg-sandal-medium rounded-full flex items-center justify-center hover:bg-sandal-dark hover:text-white transition-all">
+                                <a href="https://instagram.com/nishanth_t" target="_blank" class="social-link instagram w-12 h-12 bg-sandal-medium rounded-full flex items-center justify-center hover:bg-sandal-dark hover:text-white transition-all">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </div>
@@ -865,7 +1515,9 @@
 
                 <div class="fade-right">
                     <div class="card">
-                        <h3 class="text-2xl font-semibold mb-6 text-sandal-dark">Send Message</h3>
+                        <h3 class="text-2xl font-semibold mb-6 text-sandal-dark">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </h3>
                         
                         <form class="contact-form">
                             <div class="form-group">
@@ -880,7 +1532,9 @@
                             <div class="form-group">
                                 <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
                             </div>
-                            <button type="submit" class="btn-primary w-full">Send Message</button>
+                            <button type="submit" class="btn-primary w-full">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Message
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -892,264 +1546,229 @@
     <footer class="bg-sandal-dark text-white py-8">
         <div class="container mx-auto px-4">
             <div class="text-center">
-                <p>&copy; 2024 John Doe. All rights reserved.</p>
-                <p class="mt-2">Made with ❤️ using HTML, CSS & JavaScript</p>
+                <p>&copy; 2025 Nishanth T. All rights reserved.</p>
+                <p class="mt-2">Made with 🖤 using HTML, CSS & JavaScript</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Navigation scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenuClose = document.querySelector('.mobile-menu-close');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.add('active');
-        });
-
-        mobileMenuClose.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
-        });
-
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Initialize all animations and interactions when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
                 }
             });
-        });
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.add('active');
+                });
+            }
+
+            if (mobileMenuClose) {
+                mobileMenuClose.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                });
+            }
+
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with animation classes
+            document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Typing animation
+            const typingText = document.querySelector('.typing-animation');
+            if (typingText) {
+                const texts = ['Full Stack Developer', 'Frontend Specialist', 'Backend Developer', 'UI/UX Enthusiast', 'Problem Solver'];
+                let textIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+
+                function typeText() {
+                    const currentText = texts[textIndex];
+                    
+                    if (isDeleting) {
+                        typingText.textContent = currentText.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        typingText.textContent = currentText.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+
+                    let typeSpeed = isDeleting ? 50 : 100;
+
+                    if (!isDeleting && charIndex === currentText.length) {
+                        typeSpeed = 2000;
+                        isDeleting = true;
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        textIndex = (textIndex + 1) % texts.length;
+                        typeSpeed = 500;
+                    }
+
+                    setTimeout(typeText, typeSpeed);
                 }
-            });
-        }, observerOptions);
 
-        // Observe all elements with animation classes
-        document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Typing animation
-        const typingText = document.querySelector('.typing-animation');
-        const texts = ['Full Stack Developer', 'Frontend Specialist', 'UI/UX Enthusiast', 'Problem Solver'];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function typeText() {
-            const currentText = texts[textIndex];
-            
-            if (isDeleting) {
-                typingText.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
+                // Start typing animation
+                typeText();
             }
 
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIndex === currentText.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(typeText, typeSpeed);
-        }
-
-        // Start typing animation
-        typeText();
-
-        // Particle animation
-        function createParticles() {
-            const particlesContainer = document.querySelector('.particles');
-            
-            setInterval(() => {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 2 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            // Particle animation
+            function createParticles() {
+                const particlesContainer = document.querySelector('.particles');
                 
-                particlesContainer.appendChild(particle);
-                
-                setTimeout(() => {
-                    particle.remove();
-                }, 8000);
-            }, 500);
-        }
-
-        // Start particles
-        createParticles();
-
-        // Contact form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const subject = this.querySelector('input[placeholder="Subject"]').value;
-            const message = this.querySelector('textarea').value;
-            
-            // Simple form validation
-            if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields');
-                return;
+                if (particlesContainer) {
+                    setInterval(() => {
+                        const particle = document.createElement('div');
+                        particle.className = 'particle';
+                        particle.style.left = Math.random() * 100 + '%';
+                        particle.style.animationDelay = Math.random() * 2 + 's';
+                        particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                        
+                        particlesContainer.appendChild(particle);
+                        
+                        setTimeout(() => {
+                            particle.remove();
+                        }, 8000);
+                    }, 500);
+                }
             }
-            
-            // Simulate form submission
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
-        });
 
-        // Add hover effects to cards
-        document.querySelectorAll('.card, .project-card, .skill-item').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
+            // Start particles
+            createParticles();
 
-        // Skills progress animation
-        function animateSkills() {
-            const skillItems = document.querySelectorAll('.skill-item');
-            
-            skillItems.forEach((item, index) => {
-                setTimeout(() => {
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(20px)';
+            // Contact form submission
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const name = this.querySelector('input[type="text"]').value;
+                    const email = this.querySelector('input[type="email"]').value;
+                    const subject = this.querySelector('input[placeholder="Subject"]').value;
+                    const message = this.querySelector('textarea').value;
+                    
+                    // Simple form validation
+                    if (!name || !email || !subject || !message) {
+                        alert('Please fill in all fields');
+                        return;
+                    }
+                    
+                    // Simulate form submission
+                    const successMessage = `Thank you ${name}! Your message has been sent successfully. I will get back to you soon.`;
+                    alert(successMessage);
+                    this.reset();
+                });
+            }
+
+            // Add active nav link highlighting
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.nav-link');
+                
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Add loading animation
+            document.body.classList.add('loaded');
+
+            // Enhanced interactivity for project cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-15px) scale(1.02)';
+                    this.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.2)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+                });
+            });
+
+            // Add click effect to buttons
+            document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
                     
                     setTimeout(() => {
-                        item.style.transition = 'all 0.5s ease';
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, 100);
-                }, index * 100);
-            });
-        }
-
-        // Trigger skills animation when about section is in view
-        const aboutSection = document.getElementById('about');
-        const aboutObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateSkills();
-                    aboutObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-
-        aboutObserver.observe(aboutSection);
-
-        // Add loading animation
-        window.addEventListener('load', function() {
-            document.body.classList.add('loaded');
-        });
-
-        // Project card hover effects
-        document.querySelectorAll('.project-card').forEach(card => {
-            const overlay = card.querySelector('.project-overlay');
-            const image = card.querySelector('.project-image');
-            
-            card.addEventListener('mouseenter', function() {
-                overlay.style.opacity = '1';
-                image.style.transform = 'scale(1.1)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                overlay.style.opacity = '0';
-                image.style.transform = 'scale(1)';
+                        ripple.remove();
+                    }, 600);
+                });
             });
         });
-
-        // Add parallax effect to hero section
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const heroSection = document.querySelector('.hero-section');
-            const profileImage = document.querySelector('.profile-image');
-            
-            if (heroSection && profileImage) {
-                heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
-                profileImage.style.transform = `translateY(${scrolled * 0.3}px)`;
-            }
-        });
-
-        // Add active nav link highlighting
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Add CSS for active nav link
-        const style = document.createElement('style');
-        style.textContent = `
-            .nav-link.active {
-                color: var(--sandal-dark);
-                font-weight: 600;
-            }
-            .nav-link.active::after {
-                width: 100%;
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
