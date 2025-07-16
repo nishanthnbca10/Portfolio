@@ -451,27 +451,6 @@
             margin-bottom: 10px;
         }
 
-        /* Contact Links */
-        .contact-link {
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .contact-link:hover {
-            color: var(--sandal-dark);
-            transform: translateX(5px);
-        }
-
-        .contact-link:hover .contact-icon {
-            transform: scale(1.2);
-            color: var(--sandal-dark);
-        }
-
-        .contact-icon {
-            transition: all 0.3s ease;
-        }
-
         /* Project Cards */
         .project-card {
             background: var(--white);
@@ -665,9 +644,9 @@
             top: 0;
             left: -100%;
             width: 100%;
-            height: 100vh;
+            /* height: 100vh; */
             background: rgba(245, 230, 211, 0.95);
-            backdrop-filter: blur(10px);
+            /* backdrop-filter: blur(10px); */
             z-index: 1000;
             transition: left 0.3s ease;
             display: flex;
@@ -703,7 +682,6 @@
             .profile-image {
                 width: 250px;
                 height: 250px;
-                margin: 0 auto 30px;
             }
             
             .section {
@@ -828,14 +806,13 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <class="mobile-menu">
+    <div class="mobile-menu">
         <button class="mobile-menu-close absolute top-4 right-4 text-2xl">
             <i class="fas fa-times"></i>
         </button>
         <a href="#home" class="mobile-menu-link">Home</a>
         <a href="#about" class="mobile-menu-link">About</a>
         <a href="#resume" class="mobile-menu-link">Resume</a>
-    
         <a href="#projects" class="mobile-menu-link">Projects</a>
         <a href="#contact" class="mobile-menu-link">Contact</a>
     </div>
@@ -1272,32 +1249,8 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Languages -->
-            <!-- <div class="mt-16 fade-up">
-                <h3 class="text-3xl font-bold text-center mb-12 text-sandal-dark">
-                    <i class="fas fa-language mr-2"></i>Languages
-                </h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="skill-item-resume text-center">
-                        <div class="text-3xl mb-3">🇺🇸</div>
-                        <h4 class="font-semibold text-sandal-dark">English</h4>
-                        <p class="text-gray-600">Native</p>
-                    </div>
-                    <div class="skill-item-resume text-center">
-                        <div class="text-3xl mb-3">🇮🇳</div>
-                        <h4 class="font-semibold text-sandal-dark">Hindi</h4>
-                        <p class="text-gray-600">Native</p>
-                    </div>
-                    <div class="skill-item-resume text-center">
-                        <div class="text-3xl mb-3">🇪🇸</div>
-                        <h4 class="font-semibold text-sandal-dark">Spanish</h4>
-                        <p class="text-gray-600">Intermediate</p>
-                    </div>
-                </div>
-            </div>
         </div>
-    </section> -->
+    </section>
 
     <!-- Projects Section -->
     <section id="projects" class="section bg-sandal">
@@ -1442,7 +1395,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Contact Section -->
     <section id="contact" class="section bg-white">
@@ -1625,7 +1577,7 @@
             // Typing animation
             const typingText = document.querySelector('.typing-animation');
             if (typingText) {
-                const texts = ['Full Stack Developer', 'Frontend Developere'];
+                const texts = ['Full Stack Developer', 'Frontend Developer'];
                 let textIndex = 0;
                 let charIndex = 0;
                 let isDeleting = false;
